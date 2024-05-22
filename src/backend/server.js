@@ -13,22 +13,15 @@ const PORT = 8000;
 // Middleware
 app.use(express.json());
 
-const allowedOrigins = [
-  'http://localhost:3000',
-  'https://664dd3839e7149ef93a1b73b--sparkling-unicorn-a3234f.netlify.app'
-];
-
-app.use(cors({
-  origin: (origin, callback) => {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error('Not allowed by CORS'));
-    }
-  },
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: [
+      "http://localhost:3000",
+      "https://664ddd80e70cb8f28d9c1e67--sage-centaur-b3eecc.netlify.app"
+    ],
+    credentials: true,
+  })
+);
 app.use(bodyParser.json());
 app.use(cookieParser());
 

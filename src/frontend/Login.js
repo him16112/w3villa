@@ -9,14 +9,16 @@ const Login = () => {
     password: ''
   });
 
+  
   const navigate = useNavigate();
 
   const [error, setError] = useState('');
 
+ 
   useEffect(() => {
     const checkTokenValidity = async () => {
       try {
-        const response = await fetch(`https://w3villa-1mal.onrender.com/protected`, {
+        const response = await fetch(`https://w3villa-k6hl.onrender.com/protected`, {
           method: 'GET',
           credentials: 'include',
         });
@@ -41,7 +43,7 @@ const Login = () => {
     setError(''); // Clear previous error message
 
     try {
-      const response = await fetch(`https://w3villa-1mal.onrender.com/login`, {
+      const response = await fetch(`http://localhost:8000/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -54,12 +56,17 @@ const Login = () => {
         throw new Error('Login failed');
       }
 
+    //   const data = await response.json();
+
       alert('Login successful!');
       navigate("/home");
+
+      
     } catch (error) {
       setError(error.message);
     }
   };
+
 
   const handleRegisterClick = () => {
     navigate('/register');

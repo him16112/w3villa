@@ -15,24 +15,20 @@ app.use(express.json());
 
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://664d8cc4e70cb89eb39cedf3--prismatic-churros-31724d.netlify.app'
+  'https://664dd3839e7149ef93a1b73b--sparkling-unicorn-a3234f.netlify.app'
 ];
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      // Allow requests with no origin (like mobile apps or curl requests)
-      if (!origin) return callback(null, true);
-      if (allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    },
-    credentials: true,
-  })
-);
-
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use(cookieParser());
 

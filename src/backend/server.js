@@ -11,25 +11,31 @@ const app = express();
 const PORT = 8000;
 
 // Middleware
-app.use(
-  cors({
-    origin: [
-      "http://localhost:3000",
-       "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app",
-    ],
-    credentials: true,
-  })
-);
 
-// Enable pre-flight across the board
-app.options('*', cors({
-  origin: [
-    "http://localhost:3000",
-    "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
-  ],
+const allowedOrigins = [
+  "http://localhost:3000",
+  "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
+];
+
+app.use(cors({
+  origin: function (origin, callback) {
+    if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 
+app.options('*', cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
+// 
 app.use(bodyParser.json());
 app.use(cookieParser());
 

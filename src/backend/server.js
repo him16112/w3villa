@@ -33,6 +33,16 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routes
+//Test
+app.get("/test", async (req, res) => {
+  try {
+    res.status(200).json({ message: "API is working correctly" });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+});
+
 
 // Registration Route
 app.post("/register", async (req, res) => {

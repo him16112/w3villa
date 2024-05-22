@@ -30,8 +30,7 @@ app.options('*', cors({
     "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
   ],
   credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization']
+  preflightContinue:true,
 }));
 
 // 

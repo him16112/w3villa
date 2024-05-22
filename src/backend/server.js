@@ -15,7 +15,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://664dec9de70cb804c19c217d--gregarious-wisp-f89569.netlify.app"
     ],
     credentials: true,
   })
@@ -234,6 +233,7 @@ app.put("/updateTodo", verifyToken, async (req, res) => {
 });
 
 //middleware JWT
+
 function verifyToken(req, res, next) {
   const token = req.cookies.token; // Read token from HttpOnly cookie
   console.log(token);

@@ -17,7 +17,7 @@ const Login = () => {
   useEffect(() => {
     const checkTokenValidity = async () => {
       try {
-        const response = await fetch('http://localhost:8000/protected', {
+        const response = await fetch(`https://w3villa-1mal.onrender.com/protected`, {
           method: 'GET',
           credentials: 'include',
         });
@@ -42,7 +42,7 @@ const Login = () => {
     setError(''); // Clear previous error message
 
     try {
-      const response = await fetch('http://localhost:8000/login', {
+      const response = await fetch(`https://w3villa-1mal.onrender.com/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'

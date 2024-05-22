@@ -71,7 +71,7 @@ const Registration = () => {
     }
 
     try {
-      const response = await fetch(`https://w3villa-1mal.onrender.com/register`, {
+      const response = await fetch(`https://w3villa-k6hl.onrender.com/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

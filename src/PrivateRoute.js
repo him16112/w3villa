@@ -10,7 +10,10 @@ const PrivateRoute = (props) => {
         try {
             const response = await fetch(`https://w3villa-k6hl.onrender.com/protected`, {
                 method: 'GET',
-                credentials: 'include', // Include credentials (cookies)
+                credentials: 'include',   // Include credentials (cookies)
+                headers: {
+                   'Content-Type': 'application/json'
+                 },
             });
 
             if (response.ok) {

@@ -20,6 +20,16 @@ app.use(
     credentials: true,
   })
 );
+
+// Enable pre-flight across the board
+app.options('*', cors({
+  origin: [
+    "http://localhost:3000",
+    "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
+  ],
+  credentials: true
+}));
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 

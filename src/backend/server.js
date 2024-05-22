@@ -11,13 +11,11 @@ const app = express();
 const PORT = 8000;
 
 // Middleware
-app.use(express.json());
-
 app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://664de8ff0887e907013b24ba--astounding-custard-70e72f.netlify.app"
+      "https://664ddd80e70cb8f28d9c1e67--sage-centaur-b3eecc.netlify.app"
     ],
     credentials: true,
   })
@@ -26,7 +24,7 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 
 // Routes
-//Test
+
 app.get("/test", async (req, res) => {
   try {
     res.status(200).json({ message: "API is working correctly" });
@@ -61,7 +59,6 @@ app.post("/register", async (req, res) => {
 
     // Save the user to the database
     await newUser.save();
-
     res.status(201).json({ message: "User registered successfully" });
   } catch (error) {
     console.error(error);
@@ -98,7 +95,7 @@ app.post("/login", async (req, res) => {
       maxAge: 600000,
     });
 
-    res.json({ success: true, message: "Login successful" });
+    res.json({ success: true, message: "Login successful" , token: token});
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Internal server error" });

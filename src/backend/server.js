@@ -12,12 +12,27 @@ const PORT = 8000;
 
 // Middleware
 app.use(express.json());
+
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://664d8cc4e70cb89eb39cedf3--prismatic-churros-31724d.netlify.app'
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: (origin, callback) => {
+      // Allow requests with no origin (like mobile apps or curl requests)
+      if (!origin) return callback(null, true);
+      if (allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );
+
 app.use(bodyParser.json());
 app.use(cookieParser());
 

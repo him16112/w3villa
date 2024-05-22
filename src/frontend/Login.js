@@ -62,7 +62,7 @@ const Login = () => {
   };
 
   const handleRegisterClick = () => {
-    navigate('/registration');
+    navigate('/register');
   };
 
   return (

@@ -11,7 +11,7 @@ const Home = () => {
 
   const fetchTodos = async () => {
     try {
-      const response = await fetch(`https://w3villa-k6hl.onrender.com/todos`, {
+      const response = await fetch('http://localhost:8000/todos', {
         method: 'GET',
         credentials: 'include', // Include credentials for authentication
       });
@@ -29,7 +29,7 @@ const Home = () => {
 
   const addTodo = async (todoText) => {
     try {
-        const response = await fetch(`https://w3villa-k6hl.onrender.com/saveTodo`, {
+        const response = await fetch('http://localhost:8000/saveTodo', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -53,7 +53,7 @@ const Home = () => {
 
   const onUpdate = async (todoId, newText) => {
     try {
-      const response = await fetch(`https://w3villa-k6hl.onrender.com/updateTodo`, {
+      const response = await fetch('http://localhost:8000/updateTodo', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -78,7 +78,7 @@ const Home = () => {
 
 const onDelete = async (todoId) => {
     try {
-      const response = await fetch(`https://w3villa-k6hl.onrender.com/deleteTodo`, {
+      const response = await fetch('http://localhost:8000/deleteTodo', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

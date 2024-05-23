@@ -8,12 +8,9 @@ const PrivateRoute = (props) => {
 
     const authenticateUser = async () => {
         try {
-            const response = await fetch(`https://w3villa-k6hl.onrender.com/protected`, {
+            const response = await fetch('http://localhost:8000/protected', {
                 method: 'GET',
-                credentials: 'include',   // Include credentials (cookies)
-                headers: {
-                   'Content-Type': 'application/json'
-                 },
+                credentials: 'include', // Include credentials (cookies)
             });
 
             if (response.ok) {

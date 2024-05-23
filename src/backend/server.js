@@ -15,7 +15,7 @@ app.use(
   cors({
     origin: [
       "http://localhost:3000",
-      "https://664e48fbab580a23b9858899--heroic-brioche-79f868.netlify.app"
+      "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
     ],
     credentials: true,
   })
@@ -27,7 +27,7 @@ app.use(cookieParser());
 app.options('*', cors({
   origin: [
     "http://localhost:3000",
-    "https://664e48fbab580a23b9858899--heroic-brioche-79f868.netlify.app"
+    "https://664e34123ff3720e2e3885e4--cozy-kataifi-43a9a4.netlify.app"
   ],
   credentials: true,
   preflightContinue:true,
